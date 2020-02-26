@@ -11,20 +11,31 @@ class ScaffoldExample extends StatelessWidget {
         appBar: AppBar(
             title: Text("Scaffold"),
             centerTitle: true,
-            backgroundColor: Colors.amberAccent.shade700,
+            backgroundColor: Colors.amberAccent.shade400,
             actions: <Widget>[
               IconButton(
                   icon: Icon(Icons.email),
                   onPressed: () => debugPrint("Email Tapped!")),
               IconButton(icon: Icon(Icons.access_alarms), onPressed: _tapButton)
-            ]),
-        backgroundColor: Colors.orangeAccent.shade400,
+            ]
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.lightGreenAccent,
+          hoverColor: Colors.deepOrange,
+          child: Icon(Icons.call_missed),
+          onPressed: () => debugPrint("You Missed a Call!"),
+        ),
+        bottomNavigationBar: BottomNavigationBar(items: [
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle), title: Text("First")),
+          BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text("Second"))
+        ], onTap: (int index) => debugPrint("Tapped item: $index"),),
+        backgroundColor: Colors.blueAccent.shade400,
         body: Container(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              CustomButton()
+            alignment: Alignment.center,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  CustomButton()
 
 //              InkWell(
 //                child: FloatingActionButton(
@@ -34,9 +45,7 @@ class ScaffoldExample extends StatelessWidget {
 //                  hoverColor: Colors.blueAccent,
 //                  onPressed: () => debugPrint("Gabrielle Clicked Me!!!!!"),
 //                ))
-            ]
-          )
-        ));
+                ])));
   }
 }
 
@@ -45,22 +54,23 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        final snackBar = SnackBar(content: Text("Hello World Again!"),);
+        final snackBar = SnackBar(
+          content: Text("Hello World Again!"),
+        );
 
         Scaffold.of(context).showSnackBar(snackBar);
       },
-     child: Container(
+      child: Container(
         padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-        color: Colors.pinkAccent,
-        borderRadius: BorderRadius.circular(8.0),
-    ),
-       child: Text("Button"),
-    ),
+          color: Colors.pinkAccent,
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Text("Button"),
+      ),
     );
   }
 }
-
 
 class Home extends StatelessWidget {
   @override
