@@ -27,6 +27,7 @@ class _WisdomState extends State<Wisdom> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Colors.deepOrangeAccent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -35,14 +36,14 @@ class _WisdomState extends State<Wisdom> {
                 child: Container(
                     width: 350,
                     height: 200,
-                    margin: EdgeInsets.all(30.0),
+                    margin: EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(14.5),
                     ),
                     child: Center(child: Text(quotes[_index % quotes.length],
                     style: TextStyle(
-                      color: Colors.grey.shade600,
+                      color: Colors.white,
                       fontStyle: FontStyle.italic,
                       fontSize: 16.5
                     )))),
@@ -51,7 +52,7 @@ class _WisdomState extends State<Wisdom> {
 
             Divider(thickness: 1.3),
             Padding(
-              padding: const EdgeInsets.only(top: 18.0),
+              padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
               child: FlatButton.icon(
                   onPressed: _showQuote,
                   color: Colors.greenAccent.shade700,
@@ -59,6 +60,8 @@ class _WisdomState extends State<Wisdom> {
                   label: Text("Inspire me!",
                     style: TextStyle(fontSize: 18.8, color: Colors.white))),
             ),
+            Image.asset('assets/images/cs_lewis.jpg',
+            width: 150,),
             Spacer()
           ],
         ),
